@@ -165,18 +165,32 @@ console.log(updateData(inputData)); */
 
 // ! Task 6
 // порахуйте всі позитивні або негативні значення і повертає обʼєкт даних
-const nums = [-90, 45, 0, 16, -18, 24, -67, 43, 25, -150, 48];
+const nums = [-90, 45, 0, 16, -18, 24, -67, 43, 25, -150, 53, -42];
 
 function allPosNum(array) {
-	return array.reduce(
-		(objData, elem) => {
-			if (elem > 0) {
-				return { ...objData, pos: objData.pos + elem };
-			} else {
-				return { pos: objData.pos, neg: objData.neg + elem };
-			}
-		},
-		{ pos: 0, neg: 0 }
-	);
+  return array.reduce(
+    (objData, elem) => {
+
+      // Варіант НЕ ПРАЦЮЄ !
+      // let result = {};
+
+      // result = elem > 0 {...objData ? { pos: objData.pos + elem } : { neg: objData.neg }};
+
+
+      // Варіант через тернарник
+      // const result = elem > 0
+      //   ? { ...objData, pos: objData.pos + elem }
+      //   : { pos: objData.pos, neg: objData.neg + elem };
+      // return result;
+
+      // Варіант через IF
+      // if (elem > 0) {
+      // 	return { ...objData, pos: objData.pos + elem };
+      // } else {
+      // 	return { pos: objData.pos, neg: objData.neg + elem };
+      // }
+    },
+    { pos: 0, neg: 0 }
+  );
 }
 console.log(allPosNum(nums));
