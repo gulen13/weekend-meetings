@@ -136,33 +136,47 @@ console.log(updateData(inputData)); */
 
 /* Створіть функцію яка перевіряє два рядки чи являються вони анограмами. */
 
+// function getString() {
+//   let string1 = prompt("Write first string");
+//   let string2 = prompt("Write second string");
+//   if (string1.length !== string2.length) {
+//     console.log(`First check ${string1} ${string2}`);
+//     return false;
+//   };
 
-function getString() {
-  let string1 = prompt("Write first string");
-  let string2 = prompt("Write second string");
-  if (string1.length !== string2.length) {
-    console.log(`First check ${string1} ${string2}`);
-    return false;
-  };
-  
-  if (string1.toLowerCase() === string2.toLowerCase()) {
-console.log(`Second check ${string1} ${string2}`);
-    return false;
+//   if (string1.toLowerCase() === string2.toLowerCase()) {
+// console.log(`Second check ${string1} ${string2}`);
+//     return false;
 
-  };
-  const sortStr1 = string1.toLowerCase().split("").sort().join("");
-  const sortStr2 = string2.toLowerCase().split("").sort().join("");
-  if (sortStr1 !== sortStr2) {
-    console.log(`Third check ${sortStr1} ${sortStr2}`);
-    console.log(string1, string2);
-    return false;
-  };
+//   };
+//   const sortStr1 = string1.toLowerCase().split("").sort().join("");
+//   const sortStr2 = string2.toLowerCase().split("").sort().join("");
+//   if (sortStr1 !== sortStr2) {
+//     console.log(`Third check ${sortStr1} ${sortStr2}`);
+//     console.log(string1, string2);
+//     return false;
+//   };
 
-  return true;
-    
-  
+//   return true;
+
+// }
+
+// console.log(getString());
+
+// ! Task 6
+// порахуйте всі позитивні або негативні значення і повертає обʼєкт даних
+const nums = [-90, 45, 0, 16, -18, 24, -67, 43, 25, -150, 48];
+
+function allPosNum(array) {
+	return array.reduce(
+		(objData, elem) => {
+			if (elem > 0) {
+				return { ...objData, pos: objData.pos + elem };
+			} else {
+				return { pos: objData.pos, neg: objData.neg + elem };
+			}
+		},
+		{ pos: 0, neg: 0 }
+	);
 }
-
-console.log(getString());
-
-
+console.log(allPosNum(nums));
