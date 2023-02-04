@@ -1,4 +1,5 @@
-// // За допомогою циклу for додайте всі четні числа від min до max 
+"use strict";
+// // За допомогою циклу for додайте всі четні числа від min до max
 
 // function coutnEven() {
 //   const userMin = Number(prompt("Write min number"));
@@ -40,7 +41,7 @@
 // вырезать foo,
 // перевести его в строку разделенную пробелами
 
-const arr = ['Best', 'the', 'foo', 'is', 'JS'];
+// const arr = ['Best', 'the', 'foo', 'is', 'JS'];
 
 // function normalizedStr(array) {
 //   const newArr = [...array];
@@ -86,7 +87,7 @@ const arr = ['Best', 'the', 'foo', 'is', 'JS'];
 // замініть значення "Борщ" на "Роли"
 // видаліть перший елемент масиву та виведіть його в консоль
 // додайте "Вассабі" та "Угорь" на початок масиву
-const menu = ["Суші","Борщ"];
+/* const menu = ["Суші","Борщ"];
 console.log(menu.push("Маракуя"));
 console.log(menu)
 
@@ -96,4 +97,39 @@ console.log(menu)
 console.log(menu.shift());
 
 console.log(menu.unshift("Вассабі", "Угорь"));
-console.log(menu);
+console.log(menu); */
+
+// Напишіть функцію для переформатування дати
+
+/* const inputData = [
+  { id: 1, name: "Item 1" },
+  { id: 2, name: "Item 2" },
+  { id: 4, name: "Item 4" },
+  { id: 7, name: "Item 7" },
+];
+
+function updateData(data) {
+  const resultObject = {};
+  const objectData = {};
+  const dataId = [];
+
+  data.forEach((item) => {
+    dataId.push(item.id);
+    objectData[item.id] = item;
+  });
+  resultObject.entities = objectData;
+  resultObject.byId = dataId;
+  return resultObject;
+}
+console.log(updateData(inputData)); */
+
+// ('function should return normalized data', () => {
+//     expect(normalize(inputData)).toEqual({
+//       entities: {
+//         1: { id: 1, name: "Item 1" },
+//         2: { id: 2, name: "Item 2" },
+//         4: { id: 4, name: "Item 4" },
+//         7: { id: 7, name: "Item 7" },
+//       },
+//       byId: [1, 2, 4, 7],
+//     });
