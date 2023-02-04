@@ -133,3 +133,36 @@ console.log(updateData(inputData)); */
 //       },
 //       byId: [1, 2, 4, 7],
 //     });
+
+/* Створіть функцію яка перевіряє два рядки чи являються вони анограмами. */
+
+
+function getString() {
+  let string1 = prompt("Write first string");
+  let string2 = prompt("Write second string");
+  if (string1.length !== string2.length) {
+    console.log(`First check ${string1} ${string2}`);
+    return false;
+  };
+  
+  if (string1.toLowerCase() === string2.toLowerCase()) {
+console.log(`Second check ${string1} ${string2}`);
+    return false;
+
+  };
+  const sortStr1 = string1.toLowerCase().split("").sort().join("");
+  const sortStr2 = string2.toLowerCase().split("").sort().join("");
+  if (sortStr1 !== sortStr2) {
+    console.log(`Third check ${sortStr1} ${sortStr2}`);
+    console.log(string1, string2);
+    return false;
+  };
+
+  return true;
+    
+  
+}
+
+console.log(getString());
+
+
