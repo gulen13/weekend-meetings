@@ -71,13 +71,29 @@ const arr = ['Best', 'the', 'foo', 'is', 'JS'];
 
 // console.log(superNormStr(arr, 'foo'));
 
-function megaSuperNormStr(array, word) {
-  if (array.includes(word)) {
-    return array.slice(0, array.indexOf(word)).concat(array.slice(array.indexOf(word) + 1)).reverse().join(' ')
-  }
-  else {
-    alert('There is no such word!')
-  }
-}
+// function megaSuperNormStr(array, word) {
+//   if (array.includes(word)) {
+//     return array.slice(0, array.indexOf(word)).concat(array.slice(array.indexOf(word) + 1)).reverse().join(' ')
+//   }
+//   else {
+//     alert('There is no such word!')
+//   }
+// }
 
-console.log(megaSuperNormStr(arr, 'foo'));
+// console.log(megaSuperNormStr(arr, 'foo'));
+
+//додайте "Маракуя" в кінець
+// замініть значення "Борщ" на "Роли"
+// видаліть перший елемент масиву та виведіть його в консоль
+// додайте "Вассабі" та "Угорь" на початок масиву
+const menu = ["Суші","Борщ"];
+console.log(menu.push("Маракуя"));
+console.log(menu)
+
+menu.splice(1, 1, "Роли");
+console.log(menu)
+
+console.log(menu.shift());
+
+console.log(menu.unshift("Вассабі", "Угорь"));
+console.log(menu);
