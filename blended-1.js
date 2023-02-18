@@ -184,7 +184,7 @@ console.log(updateData(inputData)); */
 // function allPosNum(array) {
 // 	return array.reduce(
 //     (objData, elem) => {
-      
+
 //       return {
 //         ...objData,
 //         pos: elem > 0 ? objData.pos + elem : objData.pos,
@@ -197,9 +197,9 @@ console.log(updateData(inputData)); */
 // console.log(allPosNum(nums));
 
 
-  //--------------------------------------------------------------------------------------------------------------------------------------
-  
-  
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+
 //   function urlGenerator(domen) {
 //     return function (url) {
 //       return `https://${url}.${domen}`
@@ -237,19 +237,82 @@ console.log(updateData(inputData)); */
 //   return str.toLowerCase() === str.toLowerCase().split('').reverse().join('');
 // }
 
-function ifPalindrom() {
-  const userStr = prompt('Введіть рядок для перевірки на паліндромність');
-  if (userStr.trim() === '') {
-    alert('Нажаль ви нічого не ввели');
-  } else {
-    const userStrNorm = userStr.toLowerCase().replace(/\s/g, '').replace(/[^a-zA-Z0-9 ]/g, '');
-    if (userStrNorm === userStrNorm.split('').reverse().join('')) {
-      alert('Вітаємо! Ваш рядок - паліндром!');
-    }
-    else {
-      alert('Ваш рядок - не паліндром');
-    }
+// function ifPalindrom() {
+//   const userStr = prompt('Введіть рядок для перевірки на паліндромність');
+//   if (userStr.trim() === '') {
+//     alert('Нажаль ви нічого не ввели');
+//   } else {
+//     const userStrNorm = userStr.toLowerCase().replace(/\s/g, '').replace(/[^a-zA-Z0-9 ]/g, '');
+//     if (userStrNorm === userStrNorm.split('').reverse().join('')) {
+//       alert('Вітаємо! Ваш рядок - паліндром!');
+//     }
+//     else {
+//       alert('Ваш рядок - не паліндром');
+//     }
+//   }
+// }
+// ifPalindrom();
+// // console.log(isPalindrom('Ані Лорак Кароліна'));
+
+const usersMusic = {
+  track1: {
+    id: 1,
+    author: "Sting",
+    name: "Desert Rose",
+  },
+  track2:
+  {
+    id: 2,
+    author: "GHOSTEMANE",
+    name: "Mercury",
+  },
+  track3:
+  {
+    id: 3,
+    author: "Tiesto",
+    name: "adagio for string",
+  },
+  track4:
+  {
+    id: 4,
+    author: "Scooter",
+    name: "4 Am",
+  },
+  track5:
+  {
+    id: 5,
+    author: "Kendrick Lamar",
+    name: "Savior",
+  },
+  track6:
+  {
+    id: 6,
+    author: "Money",
+    name: "The Drums",
+  },
+  track7:
+  {
+    id: 7,
+    author: "Adele",
+    name: "Hello",
   }
+};
+
+class MusicPlayer {
+
+  counter = 1;
+
+  constructor(music = []) {
+    this.music = music;
+    // this.counter = 1;
+  }
+
+  playMusic(counter) {
+
+    console.log(`La,la,la .... ${this.music[track].author} - ${this.music[track].name}`);
+    this.counter = this.counter + 1;
+  }
+
 }
-ifPalindrom();
-// console.log(isPalindrom('Ані Лорак Кароліна'));
+
+const bestPlayer = new MusicPlayer(usersMusic);
