@@ -165,7 +165,7 @@ console.log(updateData(inputData)); */
 
 // ! Task 6
 // порахуйте всі позитивні або негативні значення і повертає обʼєкт даних
-const nums = [-90, 45, 0, 16, -18, 24, -67, 43, 25, -150, 48, 65, 79, -39];
+// const nums = [-90, 45, 0, 16, -18, 24, -67, 43, 25, -150, 48, 65, 79, -39];
 
 // function allPosNum(array) {
 // 	return array.reduce(
@@ -197,36 +197,59 @@ const nums = [-90, 45, 0, 16, -18, 24, -67, 43, 25, -150, 48, 65, 79, -39];
 // console.log(allPosNum(nums));
 
 
-  //-------------------------------------------------------------------------------------------------------------------------------------- 
+  //--------------------------------------------------------------------------------------------------------------------------------------
   
   
-  function urlGenerator(domen) {
-    return function (url) {
-      return `https://${url}.${domen}`
+//   function urlGenerator(domen) {
+//     return function (url) {
+//       return `https://${url}.${domen}`
+//     }
+//   }
+// const comUrl = urlGenerator('com');
+// console.log(comUrl('google'));
+// const uaUrl = urlGenerator('net');
+// console.log(uaUrl('ukr'));
+
+// function generateValidator(regExp) {
+//   return (value) => {
+//     return regExp.test(value)
+//   }
+// }
+// const nameValidator = generateValidator(
+// 	/^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/u
+// );
+// const phoneValidator = generateValidator(
+// 	/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/
+// );
+// const emaildValidator = generateValidator(
+// 	/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+// );
+// console.log(nameValidator("Poly"));
+// console.log(nameValidator("5467"));
+// console.log(phoneValidator("Mango"));
+// console.log(phoneValidator("0502388238"));
+// console.log(emaildValidator("krosh@org.ua"));
+// console.log(emaildValidator("aJax"));
+
+// Напишіть функію на перевірку рядка на паліндромність
+
+// const isPalindrom = (str) => {
+//   return str.toLowerCase() === str.toLowerCase().split('').reverse().join('');
+// }
+
+function ifPalindrom() {
+  const userStr = prompt('Введіть рядок для перевірки на паліндромність');
+  if (userStr.trim() === '') {
+    alert('Нажаль ви нічого не ввели');
+  } else {
+    const userStrNorm = userStr.toLowerCase().replace(/\s/g, '').replace(/[^a-zA-Z0-9 ]/g, '');
+    if (userStrNorm === userStrNorm.split('').reverse().join('')) {
+      alert('Вітаємо! Ваш рядок - паліндром!');
+    }
+    else {
+      alert('Ваш рядок - не паліндром');
     }
   }
-const comUrl = urlGenerator('com');
-console.log(comUrl('google'));
-const uaUrl = urlGenerator('net');
-console.log(uaUrl('ukr'));
-
-function generateValidator(regExp) {
-  return (value) => {
-    return regExp.test(value)
-  }
 }
-const nameValidator = generateValidator(
-	/^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/u
-);
-const phoneValidator = generateValidator(
-	/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/
-);
-const emaildValidator = generateValidator(
-	/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
-);
-console.log(nameValidator("Poly"));
-console.log(nameValidator("5467"));
-console.log(phoneValidator("Mango"));
-console.log(phoneValidator("0502388238"));
-console.log(emaildValidator("krosh@org.ua"));
-console.log(emaildValidator("aJax"));
+ifPalindrom();
+// console.log(isPalindrom('Ані Лорак Кароліна'));
