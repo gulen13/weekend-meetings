@@ -181,17 +181,52 @@ const nums = [-90, 45, 0, 16, -18, 24, -67, 43, 25, -150, 48, 65, 79, -39];
 // }
 // console.log(allPosNum(nums));
 
-function allPosNum(array) {
-	return array.reduce(
-    (objData, elem) => {
+// function allPosNum(array) {
+// 	return array.reduce(
+//     (objData, elem) => {
       
-      return {
-        ...objData,
-        pos: elem > 0 ? objData.pos + elem : objData.pos,
-        neg: elem > 0 ? objData.neg : objData.neg + elem,
-      }
-		},
-		{ pos: 0, neg: 0 }
-	);
+//       return {
+//         ...objData,
+//         pos: elem > 0 ? objData.pos + elem : objData.pos,
+//         neg: elem > 0 ? objData.neg : objData.neg + elem,
+//       }
+// 		},
+// 		{ pos: 0, neg: 0 }
+// 	);
+// }
+// console.log(allPosNum(nums));
+
+
+  //-------------------------------------------------------------------------------------------------------------------------------------- 
+  
+  
+  function urlGenerator(domen) {
+    return function (url) {
+      return `https://${url}.${domen}`
+    }
+  }
+const comUrl = urlGenerator('com');
+console.log(comUrl('google'));
+const uaUrl = urlGenerator('net');
+console.log(uaUrl('ukr'));
+
+function generateValidator(regExp) {
+  return (value) => {
+    return regExp.test(value)
+  }
 }
-console.log(allPosNum(nums));
+const nameValidator = generateValidator(
+	/^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/u
+);
+const phoneValidator = generateValidator(
+	/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/
+);
+const emaildValidator = generateValidator(
+	/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+);
+console.log(nameValidator("Poly"));
+console.log(nameValidator("5467"));
+console.log(phoneValidator("Mango"));
+console.log(phoneValidator("0502388238"));
+console.log(emaildValidator("krosh@org.ua"));
+console.log(emaildValidator("aJax"));
