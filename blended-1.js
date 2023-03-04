@@ -254,65 +254,132 @@ console.log(updateData(inputData)); */
 // ifPalindrom();
 // // console.log(isPalindrom('Ані Лорак Кароліна'));
 
-const usersMusic = {
-  track1: {
+
+
+// --------------------------ПЛЕЕР
+const usersMusic = [
+  {
     id: 1,
     author: "Sting",
     name: "Desert Rose",
   },
-  track2:
   {
     id: 2,
     author: "GHOSTEMANE",
     name: "Mercury",
   },
-  track3:
   {
     id: 3,
     author: "Tiesto",
     name: "adagio for string",
   },
-  track4:
   {
     id: 4,
     author: "Scooter",
     name: "4 Am",
   },
-  track5:
   {
     id: 5,
     author: "Kendrick Lamar",
     name: "Savior",
   },
-  track6:
   {
     id: 6,
     author: "Money",
     name: "The Drums",
   },
-  track7:
   {
     id: 7,
     author: "Adele",
     name: "Hello",
   }
-};
+];
 
 class MusicPlayer {
 
-  counter = 1;
+  static counter = 1;
 
   constructor(music = []) {
     this.music = music;
-    // this.counter = 1;
   }
 
-  playMusic(counter) {
+  playMusic(usersMusic) {
 
-    console.log(`La,la,la .... ${this.music[track].author} - ${this.music[track].name}`);
-    this.counter = this.counter + 1;
+    console.log(usersMusic);
   }
 
 }
 
-const bestPlayer = new MusicPlayer(usersMusic);
+const bestPlayer = new MusicPlayer();
+
+bestPlayer.playMusic(usersMusic)
+
+// Знайти айдішнік
+// Вивести в консоль яка пісня грає і її автор
+// Створити інтерфейс
+// Додати кнопки і П-ку у розмітку для відображення назв
+// Додати слухача для кнопок плей і пауз
+// Для відео перезаписати метод з аналізом формату
+// Створити масив форматів музичних композицій і формати відео для перевірки файлу виклику
+
+// Створити фронт для MVP зразка проекту
+// iFrame використовуємо для базової версії
+// Використовувати basiclightbox бібліотеку
+// Створити плеер для програвання казок в озвучці Доктора Комаровського
+
+
+
+/*
+
+Завдання 3
+
+Кнопка "Приховати" ховає текст і замінює назву кнопки на
+
+"Розкрити", при повторному натисканні текст знову стає доступним
+
+і кнопка набуває початкового вигляду.
+
+*/
+
+const userInput = document.querySelector('#passwordInput');
+const hideBtn = document.querySelector("#passwordButton");
+
+//------Варіант 1
+
+// hideBtn.addEventListener("click", showHideText);
+
+// function showHideText() {
+//   if (userInput.value.trim() !== "") {
+//     let typeValue = userInput.getAttribute("type");
+//     if (typeValue === "text") {
+//       userInput.setAttribute("type", "password");
+//       hideBtn.textContent = "Показати";
+//     } else {
+//       userInput.setAttribute("type", "text");
+//       hideBtn.textContent = "Приховати";
+//     }
+//   } else {
+//     alert("There is no information");
+//   }
+//}
+
+// -----------------ВАРІАНТ ІЗ ЗАМИКАННЯМ ---------------------------------
+
+hideBtn.addEventListener("click", showHideText("show", "hide", "type"));
+
+function showHideText(textShow, textHide, nameAtr) {
+  return () => {
+    if (userInput.value.trim() !== "") {
+      let typeValue = userInput.getAttribute(nameAtr);
+      if (typeValue === "text") {
+        userInput.setAttribute(nameAtr, "password");
+        hideBtn.textContent = textShow;
+      } else {
+        userInput.setAttribute(nameAtr, "text");
+        hideBtn.textContent = textHide;
+      }
+    } else {
+      alert("There is no information");
+    }
+  }
+}
