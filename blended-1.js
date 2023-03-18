@@ -196,9 +196,7 @@ console.log(updateData(inputData)); */
 // }
 // console.log(allPosNum(nums));
 
-
 //--------------------------------------------------------------------------------------------------------------------------------------
-
 
 //   function urlGenerator(domen) {
 //     return function (url) {
@@ -254,65 +252,60 @@ console.log(updateData(inputData)); */
 // ifPalindrom();
 // // console.log(isPalindrom('Ані Лорак Кароліна'));
 
-
-
 // --------------------------ПЛЕЕР
-const usersMusic = [
-  {
-    id: 1,
-    author: "Sting",
-    name: "Desert Rose",
-  },
-  {
-    id: 2,
-    author: "GHOSTEMANE",
-    name: "Mercury",
-  },
-  {
-    id: 3,
-    author: "Tiesto",
-    name: "adagio for string",
-  },
-  {
-    id: 4,
-    author: "Scooter",
-    name: "4 Am",
-  },
-  {
-    id: 5,
-    author: "Kendrick Lamar",
-    name: "Savior",
-  },
-  {
-    id: 6,
-    author: "Money",
-    name: "The Drums",
-  },
-  {
-    id: 7,
-    author: "Adele",
-    name: "Hello",
-  }
-];
+// const usersMusic = [
+// 	{
+// 		id: 1,
+// 		author: "Sting",
+// 		name: "Desert Rose",
+// 	},
+// 	{
+// 		id: 2,
+// 		author: "GHOSTEMANE",
+// 		name: "Mercury",
+// 	},
+// 	{
+// 		id: 3,
+// 		author: "Tiesto",
+// 		name: "adagio for string",
+// 	},
+// 	{
+// 		id: 4,
+// 		author: "Scooter",
+// 		name: "4 Am",
+// 	},
+// 	{
+// 		id: 5,
+// 		author: "Kendrick Lamar",
+// 		name: "Savior",
+// 	},
+// 	{
+// 		id: 6,
+// 		author: "Money",
+// 		name: "The Drums",
+// 	},
+// 	{
+// 		id: 7,
+// 		author: "Adele",
+// 		name: "Hello",
+// 	},
+// ];
 
-class MusicPlayer {
+// class MusicPlayer {
+// 	static counter = 1;
 
-  static counter = 1;
+// 	constructor(music = []) {
+// 		this.music = music;
+// 	}
 
-  constructor(music = []) {
-    this.music = music;
-  }
+// 	playMusic(usersMusic) {
+// 		console.log(usersMusic);
+// 	}
+// }
 
-  playMusic(usersMusic) {
+// const bestPlayer = new MusicPlayer();
 
-    console.log(usersMusic);
-  }
-
-}
-
-const bestPlayer = new MusicPlayer();
-
-bestPlayer.playMusic(usersMusic)
+// bestPlayer.playMusic(usersMusic);
 
 // Знайти айдішнік
 // Вивести в консоль яка пісня грає і її автор
@@ -327,8 +320,6 @@ bestPlayer.playMusic(usersMusic)
 // Використовувати basiclightbox бібліотеку
 // Створити плеер для програвання казок в озвучці Доктора Комаровського
 
-
-
 /*
 
 Завдання 3
@@ -341,8 +332,8 @@ bestPlayer.playMusic(usersMusic)
 
 */
 
-const userInput = document.querySelector('#passwordInput');
-const hideBtn = document.querySelector("#passwordButton");
+// const userInput = document.querySelector('#passwordInput');
+// const hideBtn = document.querySelector("#passwordButton");
 
 //------Варіант 1
 
@@ -365,21 +356,69 @@ const hideBtn = document.querySelector("#passwordButton");
 
 // -----------------ВАРІАНТ ІЗ ЗАМИКАННЯМ ---------------------------------
 
-hideBtn.addEventListener("click", showHideText("show", "hide", "type"));
+// hideBtn.addEventListener("click", showHideText("show", "hide", "type"));
 
-function showHideText(textShow, textHide, nameAtr) {
-  return () => {
-    if (userInput.value.trim() !== "") {
-      let typeValue = userInput.getAttribute(nameAtr);
-      if (typeValue === "text") {
-        userInput.setAttribute(nameAtr, "password");
-        hideBtn.textContent = textShow;
-      } else {
-        userInput.setAttribute(nameAtr, "text");
-        hideBtn.textContent = textHide;
-      }
-    } else {
-      alert("There is no information");
-    }
-  }
+// function showHideText(textShow, textHide, nameAtr) {
+//   return () => {
+//     if (userInput.value.trim() !== "") {
+//       let typeValue = userInput.getAttribute(nameAtr);
+//       if (typeValue === "text") {
+//         userInput.setAttribute(nameAtr, "password");
+//         hideBtn.textContent = textShow;
+//       } else {
+//         userInput.setAttribute(nameAtr, "text");
+//         hideBtn.textContent = textHide;
+//       }
+//     } else {
+//       alert("There is no information");
+//     }
+//   }
+// }
+
+// ================================ Коти і Собаки=================
+
+const petsList = [
+	{ kind: "Dog", year: 2015, name: "lassie" },
+	{ kind: "Cat", year: 2016, name: "einstein" },
+	{ kind: "Hedgehog", year: 2019, name: "elizabeth" },
+	{ kind: "Hamster", year: 2022, name: "alcatraz" },
+];
+// Створіть функцію  generatePetCard,
+// котора отримує 3 аргументи: kind, year, name
+// Функція має дповертати розмітку HTML:
+// <li class="petCard">
+//   <h2>Name Year</h2>
+//   <p> Тварина  Kind - Year рік народження. Вік тварини - Years рік.</p>
+// </li>
+
+// Вирахувати вік тварини і якщо старша за 1 рік додаємо років замість рік
+
+// Створити новий нумерований список з класом pets
+
+// Строрити 4 картки для тварин використовуючі функцію generatePetCard
+
+// Помістити ці картки у клас у середину списка з класом pets
+
+// Додати список на сторінку  DOM -  у DIV з класом container
+
+// Додати кнопку Видалити на кожну картку тварини
+
+// При кліку на кнопку -видаляємо картку зі структури DOM
+
+const divContainer = document.querySelector(".container");
+
+function generatePetCard(pets) {
+	const currentTime = new Date();
+	const currentYear = currentTime.getFullYear();
+	return pets.reduce((acc, { kind, year, name }) => {
+		acc += `<li class="petCard">
+<h2>${name} ${year}</h2>
+<p> Тварина ${kind} -  ${year} рік народження. Вік тварини - ${
+			currentYear - year
+		} 
+${currentYear - year > 1 ? "Years" : "Year"}.</p>
+</li>`;
+		return acc;
+	}, "");
 }
+console.log(generatePetCard(petsList));
