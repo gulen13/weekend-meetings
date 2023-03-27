@@ -252,60 +252,115 @@ console.log(updateData(inputData)); */
 // ifPalindrom();
 // // console.log(isPalindrom('Ані Лорак Кароліна'));
 
-// --------------------------ПЛЕЕР
-// const usersMusic = [
-// 	{
-// 		id: 1,
-// 		author: "Sting",
-// 		name: "Desert Rose",
-// 	},
-// 	{
-// 		id: 2,
-// 		author: "GHOSTEMANE",
-// 		name: "Mercury",
-// 	},
-// 	{
-// 		id: 3,
-// 		author: "Tiesto",
-// 		name: "adagio for string",
-// 	},
-// 	{
-// 		id: 4,
-// 		author: "Scooter",
-// 		name: "4 Am",
-// 	},
-// 	{
-// 		id: 5,
-// 		author: "Kendrick Lamar",
-// 		name: "Savior",
-// 	},
-// 	{
-// 		id: 6,
-// 		author: "Money",
-// 		name: "The Drums",
-// 	},
-// 	{
-// 		id: 7,
-// 		author: "Adele",
-// 		name: "Hello",
-// 	},
-// ];
+// --------------------------ПЛЕЕР-----------------------------------//
+const usersMusic = [
+	{
+		id: 1,
+		author: "Sting",
+		name: "Desert Rose",
+	},
+	{
+		id: 2,
+		author: "GHOSTEMANE",
+		name: "Mercury",
+	},
+	{
+		id: 3,
+		author: "Tiesto",
+		name: "adagio for string",
+	},
+	{
+		id: 4,
+		author: "Scooter",
+		name: "4 Am",
+	},
+	{
+		id: 5,
+		author: "Kendrick Lamar",
+		name: "Savior",
+	},
+	{
+		id: 6,
+		author: "Money",
+		name: "The Drums",
+	},
+	{
+		id: 7,
+		author: "Adele",
+		name: "Hello",
+	},
+];
 
-// class MusicPlayer {
-// 	static counter = 1;
+const tales = [
+  {
+    id: 1,
+    name:'Маленькі казки про їжачків',
+    url:'https://youtu.be/BKZK7CYBrEw',
+  },
+  {
+    id: 2,
+    name:'Про Гарбузика-боягузика',
+    url:'https://youtu.be/bsA7xZTv164',
+  },
+{
+  id:3,
+  name:'Крадене сонце',
+  url:'https://youtu.be/2LzCXsMjxKk',
+  },
+{
+   id:4,
+  name:'Лисиця і журавель',
+  url:'https://youtu.be/C2FmAaS6l_Q',
+  },
+{
+   id:5,
+  name:'Рукавичка',
+  url:'https://youtu.be/IIy9AVSRTR0',
+  },
+{
+  id:6,
+  name:'Славний воїн Печериця',
+  url:'https://youtu.be/ArdU9tz5nRw',
+  }
+]
 
-// 	constructor(music = []) {
-// 		this.music = music;
-// 	}
+class MusicPlayer {
 
-// 	playMusic(usersMusic) {
-// 		console.log(usersMusic);
-// 	}
-// }
+	constructor(currentTrackID=0, isPaused=true) {
+		this.currentTrackID = currentTrackID;
+    this.isPaused = isPaused;
+	}
 
-// const bestPlayer = new MusicPlayer();
+  getListOfMusic(musicArray) {
+    console.dir(musicArray);
+  }
 
-// bestPlayer.playMusic(usersMusic);
+	playMusic(musicArray) {
+    this.isPaused = false;
+    console.log("Плеер поничає грати");
+
+      musicArray.forEach(({ id, author, name }) => {
+      this.currentTrackID += 1;
+      console.log(`Лічильник треків - ${this.currentTrackID}`);
+      console.log(`Now playing track # ${id}, author - ${author}, song - ${name}`);
+    });
+    this.currentTrackID = 0;
+    console.log(`Лічильник треків - ${this.currentTrackID}`);
+	}
+
+  playTrackId(musicArray, trackNumber) {
+    let searchedTrack = musicArray[trackNumber - 1];
+    console.log(`Now playing track # ${searchedTrack.id}, author - ${searchedTrack.author}, song - ${searchedTrack.name}`);
+  }
+}
+
+const cassettePlayer = new MusicPlayer(0);
+
+// cassettePlayer.getListOfMusic(usersMusic);
+// cassettePlayer.playMusic(usersMusic);
+// cassettePlayer.playTrackId(usersMusic, 4);
+
+
 
 // Знайти айдішнік
 // Вивести в консоль яка пісня грає і її автор
@@ -319,6 +374,8 @@ console.log(updateData(inputData)); */
 // iFrame використовуємо для базової версії
 // Використовувати basiclightbox бібліотеку
 // Створити плеер для програвання казок в озвучці Доктора Комаровського
+
+// --------------------------ПЛЕЕР-----------------------------------//
 
 /*
 
@@ -377,12 +434,12 @@ console.log(updateData(inputData)); */
 
 // ================================ Коти і Собаки=================
 
-const petsList = [
-	{ kind: "Dog", year: 2015, name: "lassie" },
-	{ kind: "Cat", year: 2016, name: "einstein" },
-	{ kind: "Hedgehog", year: 2019, name: "elizabeth" },
-	{ kind: "Hamster", year: 2022, name: "alcatraz" },
-];
+// const petsList = [
+// 	{ kind: "Dog", year: 2015, name: "lassie" },
+// 	{ kind: "Cat", year: 2016, name: "einstein" },
+// 	{ kind: "Hedgehog", year: 2019, name: "elizabeth" },
+// 	{ kind: "Hamster", year: 2022, name: "alcatraz" },
+// ];
 // Створіть функцію  generatePetCard,
 // котора отримує 3 аргументи: kind, year, name
 // Функція має дповертати розмітку HTML:
@@ -405,20 +462,20 @@ const petsList = [
 
 // При кліку на кнопку -видаляємо картку зі структури DOM
 
-const divContainer = document.querySelector(".container");
+// const divContainer = document.querySelector(".container");
 
-function generatePetCard(pets) {
-	const currentTime = new Date();
-	const currentYear = currentTime.getFullYear();
-	return pets.reduce((acc, { kind, year, name }) => {
-		acc += `<li class="petCard">
-<h2>${name} ${year}</h2>
-<p> Тварина ${kind} -  ${year} рік народження. Вік тварини - ${
-			currentYear - year
-		} 
-${currentYear - year > 1 ? "Years" : "Year"}.</p>
-</li>`;
-		return acc;
-	}, "");
-}
-console.log(generatePetCard(petsList));
+// function generatePetCard(pets) {
+// 	const currentTime = new Date();
+// 	const currentYear = currentTime.getFullYear();
+// 	return pets.reduce((acc, { kind, year, name }) => {
+// 		acc += `<li class="petCard">
+// <h2>${name} ${year}</h2>
+// <p> Тварина ${kind} -  ${year} рік народження. Вік тварини - ${
+// 			currentYear - year
+// 		} 
+// ${currentYear - year > 1 ? "Years" : "Year"}.</p>
+// </li>`;
+// 		return acc;
+// 	}, "");
+// }
+// console.log(generatePetCard(petsList));
