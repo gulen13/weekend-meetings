@@ -336,6 +336,9 @@ class MusicPlayer {
   }
 
 	playMusic(musicArray) {
+    if (this.isPaused = false) {
+      return console.log(`Music player is already playing!`);
+    }
     this.isPaused = false;
     console.log("Плеер поничає грати");
 
@@ -346,12 +349,27 @@ class MusicPlayer {
     });
     this.currentTrackID = 0;
     console.log(`Лічильник треків - ${this.currentTrackID}`);
+    this.isPaused = true;
 	}
 
   playTrackId(musicArray, trackNumber) {
     let searchedTrack = musicArray[trackNumber - 1];
     console.log(`Now playing track # ${searchedTrack.id}, author - ${searchedTrack.author}, song - ${searchedTrack.name}`);
+    this.currentTrackID = searchedTrack.id;
   }
+
+  playPrewiouseTrack(musicArray, counter) {
+     this.currentTrackID = this.currentTrackID - counter;
+     let searchedTrack = musicArray[this.currentTrackID - 1];
+    console.log(`Now playing track # ${searchedTrack.id}, author - ${searchedTrack.author}, song - ${searchedTrack.name}`);
+  }
+
+  playNextTrack(musicArray, counter) {
+    this.currentTrackID = this.currentTrackID + counter;
+    let searchedTrack = musicArray[this.currentTrackID - 1];
+   console.log(`Now playing track # ${searchedTrack.id}, author - ${searchedTrack.author}, song - ${searchedTrack.name}`);
+  }
+
 }
 
 const cassettePlayer = new MusicPlayer(0);
@@ -359,6 +377,9 @@ const cassettePlayer = new MusicPlayer(0);
 // cassettePlayer.getListOfMusic(usersMusic);
 // cassettePlayer.playMusic(usersMusic);
 // cassettePlayer.playTrackId(usersMusic, 4);
+// cassettePlayer.playPrewiouseTrack(usersMusic, 1);
+// cassettePlayer.playNextTrack(usersMusic, 2);
+// console.log(cassettePlayer);
 
 
 
@@ -434,12 +455,12 @@ const cassettePlayer = new MusicPlayer(0);
 
 // ================================ Коти і Собаки=================
 
-// const petsList = [
-// 	{ kind: "Dog", year: 2015, name: "lassie" },
-// 	{ kind: "Cat", year: 2016, name: "einstein" },
-// 	{ kind: "Hedgehog", year: 2019, name: "elizabeth" },
-// 	{ kind: "Hamster", year: 2022, name: "alcatraz" },
-// ];
+const petsList = [
+	{ kind: "Dog", year: 2015, name: "lassie" },
+	{ kind: "Cat", year: 2016, name: "einstein" },
+	{ kind: "Hedgehog", year: 2019, name: "elizabeth" },
+	{ kind: "Hamster", year: 2022, name: "alcatraz" },
+];
 // Створіть функцію  generatePetCard,
 // котора отримує 3 аргументи: kind, year, name
 // Функція має дповертати розмітку HTML:
@@ -462,20 +483,20 @@ const cassettePlayer = new MusicPlayer(0);
 
 // При кліку на кнопку -видаляємо картку зі структури DOM
 
-// const divContainer = document.querySelector(".container");
+const divContainer = document.querySelector(".container");
 
-// function generatePetCard(pets) {
-// 	const currentTime = new Date();
-// 	const currentYear = currentTime.getFullYear();
-// 	return pets.reduce((acc, { kind, year, name }) => {
-// 		acc += `<li class="petCard">
-// <h2>${name} ${year}</h2>
-// <p> Тварина ${kind} -  ${year} рік народження. Вік тварини - ${
-// 			currentYear - year
-// 		} 
-// ${currentYear - year > 1 ? "Years" : "Year"}.</p>
-// </li>`;
-// 		return acc;
-// 	}, "");
-// }
+function generatePetCard(pets) {
+	const currentTime = new Date();
+	const currentYear = currentTime.getFullYear();
+	return pets.reduce((acc, { kind, year, name }) => {
+		acc += `<li class="petCard">
+<h2>${name} ${year}</h2>
+<p> Тварина ${kind} -  ${year} рік народження. Вік тварини - ${
+			currentYear - year
+		} 
+${currentYear - year > 1 ? "Years" : "Year"}.</p>
+</li>`;
+		return acc;
+	}, "");
+}
 // console.log(generatePetCard(petsList));
